@@ -30,7 +30,8 @@ export default function cateogories({ params }) {
   const clickhandler=(info)=>{
       if(info){
         dispatch(card_data(info))
-        router.push('/cardinfo')
+        // router.push('/cardinfo')
+        console.log("hello")
       }
   }
   useEffect(() => {

@@ -7,13 +7,17 @@ import { card_data } from '../redux/reducer'
 export default function cateogoriesinfo() {
   
   // useEffect(()=>{
-    const data =useSelector((state)=>state?.app?.client?.card_data)
+    // const data =useSelector((state)=>state?.app?.client?.card_data)
 
   // },[])
-  return (<>
-  {
+  return (
+    <div>
+    hello world
+    </div>
+  //   <>
+  // {
     
-    data?
+{/*     data?
     
     <section class="text-gray-600 body-font">
       <div class="container px-5 py-24 mx-auto flex flex-col">
@@ -42,7 +46,7 @@ export default function cateogoriesinfo() {
     :
     <></>
   }
-  </>
+  </> */}
   )
 }
 

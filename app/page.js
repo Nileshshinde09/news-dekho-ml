@@ -1,7 +1,10 @@
 "use client"
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { useSelector,useDispatch } from 'react-redux'
+import { card_dataAction } from '@/app/redux/reducer'
 const API_KEY = "8dcb683e4fe54fd4b1bbeacf31b6b32d"
 
 
@@ -16,10 +19,20 @@ const getData = async () => {
 
 }
 export default function Home() {
+  const selector =useSelector((state)=>state?.app?.client?.card_data)
+  const dispatch = useDispatch();
+  const router = useRouter();
+  
   const [resdata, setresdata] = useState(undefined)
+  const clickhandler=(info)=>{
+      if(info){
+        dispatch(card_dataAction(info))
+          router.push('/cardinfo')
+      }
+  }
   useEffect(() => {
     getData().then(data => {
-      if (data) {
+      if (data){
         setresdata(data.articles);
       }
     });
@@ -36,12 +49,12 @@ export default function Home() {
 
   return(
     
-    <>
+    <> 
     
     {resdata?.map((info,id) => {
       return(
         <div className="flex justify-center mt-[2rem] max-sm:mt-[4rem]" key={id}>
-          <Link href={info.url}>
+          <div onClick={()=>clickhandler(info)}>
           <div className="flex flex-col justify-center">
             <div className="flex flex-col md:flex-row max-w-7xl justify-center items-center ">
               <div className="overflow-hidden w-full m-4 shadow-sm flex flex-col md:flex-row justify-center">
@@ -69,7 +82,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </Link>
+        </div>
         </div>
       )})}
     </>

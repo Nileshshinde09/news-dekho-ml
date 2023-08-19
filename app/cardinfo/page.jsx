@@ -2,14 +2,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
-import { card_data } from '../redux/reducer'
 import { useState,useEffect } from 'react'
 export default function cateogoriesinfo() {
   const [data, setData] = useState(undefined);
   const cardData = useSelector((state) => state?.app?.client?.card_data);
-
+  
   useEffect(() => {
-    setData(cardData);
+    if(cardData){
+      setData(cardData);
+
+    }
   }, [cardData]);
   return (<>
   {

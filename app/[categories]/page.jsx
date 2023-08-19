@@ -1,10 +1,10 @@
-"use client"
+"use client" 
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import { card_data } from '../redux/reducer'
+import { card_dataAction } from '../redux/reducer'
 
 const API_KEY = "8dcb683e4fe54fd4b1bbeacf31b6b32d"
 
@@ -23,13 +23,12 @@ const getData = async (cat) => {
 }
 export default function cateogories({ params }) {
   const dispatch =useDispatch();
-  const cardData =useSelector((state)=>state?.app?.client?.card_data);
   const router = useRouter();
   
   const [resdata, setresdata] = useState(undefined)
   const clickhandler=(info)=>{
       if(info){
-        dispatch(card_data(info))
+        dispatch(card_dataAction(info))
         router.push('/cardinfo')
       }
   }
@@ -52,7 +51,6 @@ export default function cateogories({ params }) {
 
   return (
     <>
-
       {resdata?.map((info) => {
         return (
             <div onClick={()=>clickhandler(info)}>

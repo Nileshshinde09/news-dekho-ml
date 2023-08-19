@@ -23,7 +23,7 @@ const getData = async (cat) => {
 }
 export default function cateogories({ params }) {
   const dispatch =useDispatch();
-  const cardData =useSelector((state)=>state.app.client.card_data);
+  const cardData =useSelector((state)=>state?.app?.client?.card_data);
   const router = useRouter();
   
   const [resdata, setresdata] = useState(undefined)

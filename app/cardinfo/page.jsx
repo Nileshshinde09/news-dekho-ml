@@ -3,13 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { card_data } from '../redux/reducer'
-
+import { useState,useEffect } from 'react'
 export default function cateogoriesinfo() {
-  
-  // useEffect(()=>{
-    const data =useSelector((state)=>state?.app?.client?.card_data)
+  const [data, setData] = useState(undefined);
+  const cardData = useSelector((state) => state?.app?.client?.card_data);
 
-  // },[])
+  useEffect(() => {
+    setData(cardData);
+  }, [cardData]);
   return (<>
   {
     
@@ -17,11 +18,10 @@ export default function cateogoriesinfo() {
     
     <section class="text-gray-600 body-font">
       <div class="container px-5 py-24 mx-auto flex flex-col">
-      <h1 class="leading-relaxed text-2xl font-semibold text-center mb-4 mx-auto">{data.title}</h1>
-
-        <div class="lg:w-4/6 mx-auto">
-          <div class="rounded-sm h-full overflow-hidden ">
-            <img alt="content" class="object-cover object-center h-full w-full" src={data.urlToImage}/>
+      <h1 class="leading-relaxed text-2xl font-semibold text-center mb-4 mx-auto text-black">{data.title}</h1>
+        <div class="lg:w-4/6 mx-auto shadow-2xl shadow-slate-950">
+          <div class="rounded-sm h-full overflow-hidden">
+            <img alt="content" class="object-cover object-center h-full w-full shadow-2xl" src={data.urlToImage}/>
           </div>
           <div class="flex flex-col sm:flex-row mt-10">
             

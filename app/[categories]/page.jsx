@@ -57,10 +57,10 @@ export default function cateogories({ params }) {
 
   return (
     <>
-      {resdata?.map((info) => {
+      {resdata?.map((info,i) => {
         const img=info.urlToImage
         return (
-          <>
+          <div key={i}>
           
             
           
@@ -90,7 +90,7 @@ export default function cateogories({ params }) {
             </div>
           </div>
           
-            </>
+            </div>
         )
       })}
     </>

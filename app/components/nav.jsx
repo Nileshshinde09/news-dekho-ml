@@ -6,24 +6,11 @@ import { useDispatch,useSelector } from 'react-redux'
 import { useEffect,useState } from 'react'
 import { auth_toggleAction } from '../redux/reducer'
 export const nav = () => {
-    const toggle=useSelector((state)=>state?.app?.client?.auth_toggle)
-    const visible=useSelector((state)=>state?.app?.client?.card_data)
-
-    const dispatch=useDispatch();
-    const [authToggle, setAuthToggle] = useState(undefined);
-    const [buttonVisible, setButtonVisible] = useState(undefined);
-
-
-    useEffect(() => {
-        setAuthToggle(toggle);
-        setButtonVisible(visible)
-      }, [toggle,visible]);
-      const authhandler=(state)=>{
-        dispatch(auth_toggleAction(!state))
-      }
+    // GiHamburgerMenu
+      
     return (
         <div>
-            <div className='fixed nav-shadow h-[3.5rem] sm:w-[97%] w-11/12 bg-slate-200 flex justify-center '>
+            <div className='fixed nav-shadow h-[3.5rem] sm:w-[97%] w-11/12 text-stone-900 bg-blue-300 flex justify-center '>
                 <Link href={"/"}>
                     <h1 className='nav-logo'>
                         Newsदेखो
@@ -31,7 +18,7 @@ export const nav = () => {
                 </Link>
             </div>
             <div className='h-[2rem] max-lg:hidden'>
-                <div className='cat text-2xl flex space-x-4  mt-[4rem] fixed'>
+                <div className=' cat text-2xl flex justify-center shadow-lg shadow-gray-950 space-x-4 mt-[4rem] fixed bg-blue-300  h-[2rem] sm:w-[97%] w-11/12'>
                     <Link href={"/"}>
                         <h1 className='hover:text-3xl'>Trending</h1>
                     </Link>
@@ -51,9 +38,7 @@ export const nav = () => {
                         <h1 className='hover:text-3xl'>Technology</h1>
                     </Link>
 
-                    <div className="bg-slate-200 p-1 hover:p-2 relative border-black rounded-xl border-2">
-                        <button onClick={()=>authhandler(authToggle)}>Authenticat</button>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -80,9 +65,7 @@ export const nav = () => {
                         <Link href={"/technology"}>
                             <h1 className='hover:text-3xl'>Technology</h1>
                         </Link>
-                        <div className='bg-slate-200 p-1 hover:p-2 relative border-black rounded-xl border-2'>
-                        <button onClick={()=>authhandler(authToggle)}>Authenticat</button>
-                    </div>
+                        
                     </div>
                 </div>
             </div>

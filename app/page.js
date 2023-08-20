@@ -59,8 +59,8 @@ export default function Home() {
             <div className="flex flex-col md:flex-row max-w-7xl justify-center items-center ">
               <div className="overflow-hidden w-full m-4 shadow-sm flex flex-col md:flex-row justify-center">
                 <div className="flex flex-col md:flex-row items-center">
-                  <div className="">
-                    <img src={info.urlToImage} alt="image" className="h-[15rem] " />
+                  <div className="shadow-2xl shadow-black">
+                    <img src={info.urlToImage} alt="image" className="h-[15rem] hoverprop" />
                   </div>
                   <div className="md:w-2/3 m-4 ">
                     <div className="flex text-gray-500 text-sm m-2">

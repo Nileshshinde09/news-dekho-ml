@@ -4,21 +4,27 @@
 
 @layer base{
     body{
-        margin: 1rem;
+        margin: 1px 1rem;
     }
     .nav-logo{
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         font-size: xx-large;
         width: 10rem;
         text-align: center;
-        text-shadow: 4px 4px 4px rgb(249, 47, 36);
+        text-shadow: 4px 4px 4px rgb(76, 57, 45);
     }
     .nav-shadow{
         box-shadow: 6px 6px 10px black;
     }
     .cat{
         font-family: Georgia, 'Times New Roman', Times, serif;
-        text-shadow: 5px 3px 4px rgb(77, 123, 167);
+        text-shadow: 5px 3px 4px rgb(43, 42, 42);
+    }
+    .hoverprop:hover{
+        height: 20rem;
+        position: absolute;
+        margin: auto auto;
+        box-shadow: 15px 15px 25px black;
     }
 }
 @layer utilities {

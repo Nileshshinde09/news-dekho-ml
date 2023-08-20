@@ -1,5 +1,6 @@
 import './globals.css'
 import Nav from './components/nav'
+import Footer from './components/footer';
 import { Providers } from "@/app/redux/provider";
 export const metadata = {
   title: 'Newsदेखो'
@@ -16,6 +17,7 @@ export default function RootLayout({ children }){
         </div>
         {children}
         </Providers>
+        <Footer/>
         </body>
     </html>
   )

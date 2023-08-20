@@ -52,7 +52,12 @@ export default function cateogories({ params }) {
   return (
     <>
       {resdata?.map((info) => {
+        const img=info.urlToImage
         return (
+          <>
+          
+            
+          
             <div onClick={()=>clickhandler(info)}>
           <div className="flex justify-center mt-[2rem] max-sm:mt-[4rem]" key={info.title}>
               <div className="flex flex-col justify-center">
@@ -60,7 +65,7 @@ export default function cateogories({ params }) {
                   <div className="overflow-hidden w-full m-4 shadow-sm flex flex-col md:flex-row justify-center">
                     <div className="flex flex-col md:flex-row items-center">
                       <div className="">
-                        <img src={info.urlToImage} alt="image" className="h-[15rem] " />
+                        <img src={img} alt="image" className="h-[15rem] shadow-2xl shadow-black hoverprop" />
                       </div>
                       <div className="md:w-2/3 m-4 ">
                         <div className="flex text-gray-500 text-sm m-2">
@@ -79,6 +84,8 @@ export default function cateogories({ params }) {
               </div>
             </div>
           </div>
+          
+            </>
         )
       })}
     </>

@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }){
   return (
     <html lang="en">
-      <body className="bg-zinc-100 no-scrollbar">
+      <body className="bg-zinc-300 no-scrollbar">
         <Providers>
         <div className='sm:mb-[5rem] mb-[7.5rem]'>
         <Nav/>

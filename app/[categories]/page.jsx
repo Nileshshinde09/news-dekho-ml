@@ -75,7 +75,6 @@ export default function cateogories({ params }) {
                         <div className="font-bold text-black text-xl m-2">{info.title}</div>
                         <div className="text-sm text-gray-500 mt-4 m-2">{info.description}</div>
                         <div className="flex cursor-pointer">
-
                         </div>
                       </div>
                     </div>

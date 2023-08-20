@@ -10,12 +10,19 @@ const API_KEY = "8dcb683e4fe54fd4b1bbeacf31b6b32d"
 
 const getData = async () => {
   try {
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=${API_KEY}`)
+    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${API_KEY}`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Request failed with status: ${response.status} ${response.statusText}`);
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
     console.error('Error fetching JSON:', error);
-  };
+    return null; // You might want to handle this error case in your application
+  }
 
 }
 export default function Home() {

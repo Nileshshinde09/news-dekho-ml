@@ -12,13 +12,19 @@ const API_KEY = "8dcb683e4fe54fd4b1bbeacf31b6b32d"
 const getData = async (cat) => {
   try {
     if (cat) {
-      const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=${API_KEY}`)
-      const data = await response.json();
-      return data;
+      const url = `https://newsapi.org/v2/top-headlines?country=in&category=${cat}&apiKey=${API_KEY}`;
+      const response = await fetch(url);
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        console.error('Response error:', response.status, response.statusText);
+        throw new Error('Response error');
+      }
     }
   } catch (error) {
     console.error('Error fetching JSON:', error);
-  };
+  }
 
 }
 export default function cateogories({ params }) {
